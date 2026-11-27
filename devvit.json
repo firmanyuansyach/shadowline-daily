@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developers.reddit.com/schema/config-file.v1.json",
+  "menu": {
+    "items": [
+      {
+        "description": "shadowline-daily",
+        "endpoint": "/internal/menu/post-create",
+        "forUserType": "moderator",
+        "label": "Create a new post",
+        "location": "subreddit"
+      }
+    ]
+  },
+  "name": "shadowline-daily",
+  "permissions": {
+    "reddit": {
+      "enable": true,
+      "scope": "user"
+    },
+    "redis": true
+  },
+  "post": {
+    "dir": "dist/client",
+    "entrypoints": {
+      "default": {
+        "entry": "splash.html",
+        "inline": true
+      },
+      "game": {
+        "entry": "game.html"
+      }
+    }
+  },
+  "scheduler": {
+    "tasks": {
+      "daily-post": {
+        "cron": "5 0 * * *",
+        "endpoint": "/internal/scheduler/daily-post"
+      }
+    }
+  },
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch"
+  },
+  "server": {
+    "dir": "dist/server",
+    "entry": "index.cjs"
+  },
+  "triggers": {
+    "onAppInstall": "/internal/triggers/on-app-install"
+  },
+  "dev": {
+    "subreddit": "shadowline_daily_dev"
+  }
+}
