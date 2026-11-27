@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["WebWorker", "ES2023"],
+
+    "outDir": "../dist/types/shared",
+
+    "tsBuildInfoFile": "../dist/types/shared/tsconfig.tsbuildinfo",
+
+    "rootDir": "../src/shared"
+  },
+  "include": ["../src/shared/**/*"],
+  // Unit tests run under node --experimental-strip-types, which needs the
+  // '.ts' import specifier that tsc rejects (TS5097). They are covered by
+  // npm run test:unit, not by the build type-check.
+  "exclude": ["../src/shared/**/*.test.ts"]
+}

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "composite": false,
+    "lib": [
+      "ES2023"
+    ],
+    "noEmit": true,
+    "rootDir": "../src/shared",
+    "types": [
+      "node"
+    ]
+  },
+  "exclude": [],
+  "extends": "./tsconfig.base.json",
+  "include": [
+    "../src/shared/**/*.test.ts"
+  ]
+}
